@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface XhiresAmbulanceWlApp {
+        "ambulanceId": string;
+        "apiBase": string;
         /**
           * @default ""
          */
@@ -16,6 +18,8 @@ export namespace Components {
         "entryId": string;
     }
     interface XhiresAmbulanceWlList {
+        "ambulanceId": string;
+        "apiBase": string;
     }
 }
 export interface XhiresAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
@@ -75,6 +79,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface XhiresAmbulanceWlApp {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         /**
           * @default ""
          */
@@ -85,20 +91,28 @@ declare namespace LocalJSX {
         "onEditor-closed"?: (event: XhiresAmbulanceWlEditorCustomEvent<string>) => void;
     }
     interface XhiresAmbulanceWlList {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "onEntry-clicked"?: (event: XhiresAmbulanceWlListCustomEvent<string>) => void;
     }
 
     interface XhiresAmbulanceWlAppAttributes {
         "basePath": string;
+        "apiBase": string;
+        "ambulanceId": string;
     }
     interface XhiresAmbulanceWlEditorAttributes {
         "entryId": string;
+    }
+    interface XhiresAmbulanceWlListAttributes {
+        "apiBase": string;
+        "ambulanceId": string;
     }
 
     interface IntrinsicElements {
         "xhires-ambulance-wl-app": Omit<XhiresAmbulanceWlApp, keyof XhiresAmbulanceWlAppAttributes> & { [K in keyof XhiresAmbulanceWlApp & keyof XhiresAmbulanceWlAppAttributes]?: XhiresAmbulanceWlApp[K] } & { [K in keyof XhiresAmbulanceWlApp & keyof XhiresAmbulanceWlAppAttributes as `attr:${K}`]?: XhiresAmbulanceWlAppAttributes[K] } & { [K in keyof XhiresAmbulanceWlApp & keyof XhiresAmbulanceWlAppAttributes as `prop:${K}`]?: XhiresAmbulanceWlApp[K] };
         "xhires-ambulance-wl-editor": Omit<XhiresAmbulanceWlEditor, keyof XhiresAmbulanceWlEditorAttributes> & { [K in keyof XhiresAmbulanceWlEditor & keyof XhiresAmbulanceWlEditorAttributes]?: XhiresAmbulanceWlEditor[K] } & { [K in keyof XhiresAmbulanceWlEditor & keyof XhiresAmbulanceWlEditorAttributes as `attr:${K}`]?: XhiresAmbulanceWlEditorAttributes[K] } & { [K in keyof XhiresAmbulanceWlEditor & keyof XhiresAmbulanceWlEditorAttributes as `prop:${K}`]?: XhiresAmbulanceWlEditor[K] };
-        "xhires-ambulance-wl-list": XhiresAmbulanceWlList;
+        "xhires-ambulance-wl-list": Omit<XhiresAmbulanceWlList, keyof XhiresAmbulanceWlListAttributes> & { [K in keyof XhiresAmbulanceWlList & keyof XhiresAmbulanceWlListAttributes]?: XhiresAmbulanceWlList[K] } & { [K in keyof XhiresAmbulanceWlList & keyof XhiresAmbulanceWlListAttributes as `attr:${K}`]?: XhiresAmbulanceWlListAttributes[K] } & { [K in keyof XhiresAmbulanceWlList & keyof XhiresAmbulanceWlListAttributes as `prop:${K}`]?: XhiresAmbulanceWlList[K] };
     }
 }
 export { LocalJSX as JSX };
