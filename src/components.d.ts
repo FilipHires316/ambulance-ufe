@@ -6,24 +6,98 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface XhiresAmbulanceWlApp {
+        /**
+          * @default ""
+         */
+        "basePath": string;
+    }
+    interface XhiresAmbulanceWlEditor {
+        "entryId": string;
+    }
     interface XhiresAmbulanceWlList {
     }
 }
+export interface XhiresAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXhiresAmbulanceWlEditorElement;
+}
+export interface XhiresAmbulanceWlListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXhiresAmbulanceWlListElement;
+}
 declare global {
+    interface HTMLXhiresAmbulanceWlAppElement extends Components.XhiresAmbulanceWlApp, HTMLStencilElement {
+    }
+    var HTMLXhiresAmbulanceWlAppElement: {
+        prototype: HTMLXhiresAmbulanceWlAppElement;
+        new (): HTMLXhiresAmbulanceWlAppElement;
+    };
+    interface HTMLXhiresAmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLXhiresAmbulanceWlEditorElement extends Components.XhiresAmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXhiresAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXhiresAmbulanceWlEditorElement, ev: XhiresAmbulanceWlEditorCustomEvent<HTMLXhiresAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXhiresAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXhiresAmbulanceWlEditorElement, ev: XhiresAmbulanceWlEditorCustomEvent<HTMLXhiresAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLXhiresAmbulanceWlEditorElement: {
+        prototype: HTMLXhiresAmbulanceWlEditorElement;
+        new (): HTMLXhiresAmbulanceWlEditorElement;
+    };
+    interface HTMLXhiresAmbulanceWlListElementEventMap {
+        "entry-clicked": string;
+    }
     interface HTMLXhiresAmbulanceWlListElement extends Components.XhiresAmbulanceWlList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXhiresAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLXhiresAmbulanceWlListElement, ev: XhiresAmbulanceWlListCustomEvent<HTMLXhiresAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXhiresAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLXhiresAmbulanceWlListElement, ev: XhiresAmbulanceWlListCustomEvent<HTMLXhiresAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLXhiresAmbulanceWlListElement: {
         prototype: HTMLXhiresAmbulanceWlListElement;
         new (): HTMLXhiresAmbulanceWlListElement;
     };
     interface HTMLElementTagNameMap {
+        "xhires-ambulance-wl-app": HTMLXhiresAmbulanceWlAppElement;
+        "xhires-ambulance-wl-editor": HTMLXhiresAmbulanceWlEditorElement;
         "xhires-ambulance-wl-list": HTMLXhiresAmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
-    interface XhiresAmbulanceWlList {
+    interface XhiresAmbulanceWlApp {
+        /**
+          * @default ""
+         */
+        "basePath"?: string;
     }
+    interface XhiresAmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: XhiresAmbulanceWlEditorCustomEvent<string>) => void;
+    }
+    interface XhiresAmbulanceWlList {
+        "onEntry-clicked"?: (event: XhiresAmbulanceWlListCustomEvent<string>) => void;
+    }
+
+    interface XhiresAmbulanceWlAppAttributes {
+        "basePath": string;
+    }
+    interface XhiresAmbulanceWlEditorAttributes {
+        "entryId": string;
+    }
+
     interface IntrinsicElements {
+        "xhires-ambulance-wl-app": Omit<XhiresAmbulanceWlApp, keyof XhiresAmbulanceWlAppAttributes> & { [K in keyof XhiresAmbulanceWlApp & keyof XhiresAmbulanceWlAppAttributes]?: XhiresAmbulanceWlApp[K] } & { [K in keyof XhiresAmbulanceWlApp & keyof XhiresAmbulanceWlAppAttributes as `attr:${K}`]?: XhiresAmbulanceWlAppAttributes[K] } & { [K in keyof XhiresAmbulanceWlApp & keyof XhiresAmbulanceWlAppAttributes as `prop:${K}`]?: XhiresAmbulanceWlApp[K] };
+        "xhires-ambulance-wl-editor": Omit<XhiresAmbulanceWlEditor, keyof XhiresAmbulanceWlEditorAttributes> & { [K in keyof XhiresAmbulanceWlEditor & keyof XhiresAmbulanceWlEditorAttributes]?: XhiresAmbulanceWlEditor[K] } & { [K in keyof XhiresAmbulanceWlEditor & keyof XhiresAmbulanceWlEditorAttributes as `attr:${K}`]?: XhiresAmbulanceWlEditorAttributes[K] } & { [K in keyof XhiresAmbulanceWlEditor & keyof XhiresAmbulanceWlEditorAttributes as `prop:${K}`]?: XhiresAmbulanceWlEditor[K] };
         "xhires-ambulance-wl-list": XhiresAmbulanceWlList;
     }
 }
@@ -31,6 +105,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "xhires-ambulance-wl-app": LocalJSX.IntrinsicElements["xhires-ambulance-wl-app"] & JSXBase.HTMLAttributes<HTMLXhiresAmbulanceWlAppElement>;
+            "xhires-ambulance-wl-editor": LocalJSX.IntrinsicElements["xhires-ambulance-wl-editor"] & JSXBase.HTMLAttributes<HTMLXhiresAmbulanceWlEditorElement>;
             "xhires-ambulance-wl-list": LocalJSX.IntrinsicElements["xhires-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLXhiresAmbulanceWlListElement>;
         }
     }
