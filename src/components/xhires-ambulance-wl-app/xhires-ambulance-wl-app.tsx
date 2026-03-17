@@ -54,6 +54,7 @@ export class XhiresAmbulanceWlApp {
     <Host>
       { element === "editor"
       ? <xhires-ambulance-wl-editor entry-id={entryId}
+          ambulance-id={this.ambulanceId} api-base={this.apiBase}
           oneditor-closed={ () => navigate("./list")} >
         </xhires-ambulance-wl-editor>
       : <xhires-ambulance-wl-list  ambulance-id={this.ambulanceId} api-base={this.apiBase}
