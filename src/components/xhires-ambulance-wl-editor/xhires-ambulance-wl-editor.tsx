@@ -48,6 +48,7 @@ export class XhiresAmbulanceWlEditor {
 
       if (response.raw.status < 299) {
           this.entry = await response.value();
+          this.duration = this.entry.estimatedDurationMinutes;
           this.isValid = true;
       } else {
           this.errorMessage = `Cannot retrieve list of waiting patients: ${response.raw.statusText}`
